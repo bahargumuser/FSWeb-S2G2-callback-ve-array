@@ -101,27 +101,16 @@ if(final[0]["Away Team Goals"] > final[0]["Home Team Goals"]){
 
 
 /*  Görev 2: 
-	Finaller adlı fonksiyonu kullanarak aşağıdakileri uygulayın:
-	1. Bir dizi(array) olan Fifa datasını fonksiyonun birinci parametresi olarak alacak
-	2. Sadece final maçlarını içeren nesnenin(object) datalarını filtreleyerek, bir dizi olarak döndürecek(return)
-	
+	Finaller adlı fonksiyonu kullanarak aşağıdakileri uygulaynpm
 	💡 İPUCU - verilen data içindeki nesnelerin(objects) "Stage" anahtarına bakmalısınız
 */
 
-function Finaller(params) {
-	
-var newArray = params.filter(function(el))
-{
-
-return el.Stage=='Final'
-}
-
-console.log(newArray);
-}
+function Finaller (params){
+    var newArray = params.filter(function (el) {return el.Stage =='Final'});
+    return newArray; 
+  }
 
 Finaller(fifaData)
-
-
 
 /*  Görev 3: 
 	Bir higher-order fonksiyonu olan Yillar isimli fonksiyona aşağıdakileri uygulayın: 
@@ -129,12 +118,15 @@ Finaller(fifaData)
 	2. Görev 2'de yazdığınız Finaller fonksiyonunu, geriçağırım(callback) olarak fonksiyonun ikinci parametresi olarak alacak
 	3. Finaller data setindeki tüm yılları içeren "years" adındaki diziyi(array) döndürecek
 	*/
+    //final maclarının yıllarını bul. birinci bölüm=final maçlarını al, 2.=final maçlarının yıllarını al
 
-function Yillar(/* kodlar buraya */) {
-	
-    /* kodlar buraya */
-}
-
+    function Yillar(fifaData , finaller ) {
+        return years = finaller(fifaData).map(function (el) {return el.Year});
+        }
+    
+        let result = Yillar(fifaData,finaller);
+    
+        console.log(result)
 
 /*  Görev 4: 
 	Bir higher-order fonksiyonunu olan Kazananlar isimli fonksiyona aşağıdakileri uygulayın:  
@@ -144,9 +136,11 @@ function Yillar(/* kodlar buraya */) {
 	💡 İPUCU: Beraberlikler(ties) için şimdilik endişelenmeyin (Detaylı bilgi için README dosyasına bakabilirsiniz.)
 	4. Tüm kazanan ülkelerin isimlerini içeren `kazananlar` adında bir dizi(array) döndürecek(return)  */ 
 
-function Kazananlar(/* kodlar buraya */) {
-	
-    /* kodlar buraya */
+function Kazananlar(fifaData , finalleriKazananlar) {
+
+	 let ev = finalleriKazananlar(fifaData).map(function (el) {return el["Home Team Goals"]})
+    
+     let misafir = finalleriKazananlar(fifaData).map(function(el) {return el ["Away Team Goals"]})
 	
 }
 
