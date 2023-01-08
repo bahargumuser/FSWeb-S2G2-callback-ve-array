@@ -8,13 +8,96 @@ const { fifaData } = require('./fifa.js')
 
 //(a) 2014 Dünya kupası Finali Evsahibi takım ismi (dizide "Home Team Name" anahtarı)
 
+var takim = fifaData.filter(function (mevcutyil)
+        {
+        return mevcutyil.Year ==2014 
+        }
+        );
+
+
+var final = takim.filter(function (end)
+        {
+        return end.Stage == "Final" 
+        }
+        );
+
+
+console.log(final);
+
+console.log(final[0]['Home Team Name'])
+
+
+
 //(b) 2014 Dünya kupası Finali Deplasman takım ismi  (dizide "Away Team Name" anahtarı)
+
+var takim = fifaData.filter(function (mevcutyil)
+        {
+        return mevcutyil.Year ==2014 
+        }
+        );
+
+
+var final = takim.filter(function (end)
+        {
+        return end.Stage == "Final" 
+        }
+        );
+
+
+console.log(final);
+
+console.log(final[0]['Away Team Name'])
 
 //(c) 2014 Dünya kupası finali Ev sahibi takım golleri (dizide "Home Team Goals" anahtarı)
 
+var takim = fifaData.filter(function (mevcutyil)
+        {
+        return mevcutyil.Year ==2014 
+        }
+        );
+
+
+var final = takim.filter(function (end)
+        {
+        return end.Stage == "Final" 
+        }
+        );
+
+
+console.log(final);
+
+console.log(final[0]['Home Team Goals'])
+
 //(d)2014 Dünya kupası finali Deplasman takım golleri  (dizide "Away Team Goals" anahtarı)
 
+var takim = fifaData.filter(function (mevcutyil)
+        {
+        return mevcutyil.Year ==2014 
+        }
+        );
+
+
+var final = takim.filter(function (end)
+        {
+        return end.Stage == "Final" 
+        }
+        );
+
+
+console.log(final);
+
+console.log(final[0]['Away Team Goals'])
+
 //(e) 2014 Dünya kupası finali kazananı*/
+
+if(final[0]["Away Team Goals"] > final[0]["Home Team Goals"]){
+    console.log(' kazanan ' + final[0]["Away Team Name"])
+}else if(final[0]["Away Team Goals"] < final[0]["Home Team Goals"]){
+    console.log(' kazanan ' + final[0]["Home Team Name"])
+}else{
+    console.log('No winner')
+}
+
 
 
 /*  Görev 2: 
@@ -25,10 +108,18 @@ const { fifaData } = require('./fifa.js')
 	💡 İPUCU - verilen data içindeki nesnelerin(objects) "Stage" anahtarına bakmalısınız
 */
 
-function Finaller(/* kodlar buraya */) {
+function Finaller(params) {
 	
-    /* kodlar buraya */
+var newArray = params.filter(function(el))
+{
+
+return el.Stage=='Final'
 }
+
+console.log(newArray);
+}
+
+Finaller(fifaData)
 
 
 
